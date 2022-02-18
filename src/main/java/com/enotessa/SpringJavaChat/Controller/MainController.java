@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.List;
+import java.io.IOException;
 
 // http://localhost:8080
 @Controller
@@ -21,19 +18,24 @@ public class MainController {
     private UserRepository userRepository;
 
     @ResponseBody
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
+
+    @ResponseBody
     @PostMapping("/addUser")
-    public String addUser(HttpServletRequest request, HttpServletResponse response,
-                          @RequestParam(value = "login", required = false) String login,
-                          @RequestParam(value = "password", required = false) String password,
-                          Model model) {
+    public String addUser(HttpServletRequest request, HttpServletResponse response,Model model) {
         UserEntity user = new UserEntity();
         user.setUserName(request.getParameter("login"));
         user.setPassword(request.getParameter("password"));     //TODO SHA1()
         user.setRole(request.getParameter("user"));
         this.userRepository.save(user);
 
+        //response.setHeader("message","succeed");
         model.addAttribute("message", "succeed");
-        return "page.jsp";
+        //response.sendRedirect("index.html");
+        return "index";
     }
 
     @ResponseBody
