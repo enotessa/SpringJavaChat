@@ -12,6 +12,7 @@ $('.tabs .tab').click(function(){
         $('.signup-cont').show();
     }
 });
+
 $('.container .bg').mousemove(function(e){
     var amountMovedX = (e.pageX * -1 / 30);
     var amountMovedY = (e.pageY * -1 / 9);
