@@ -12,3 +12,4 @@
 --     message char(250) not null,
 --     time datetime
 -- );
+

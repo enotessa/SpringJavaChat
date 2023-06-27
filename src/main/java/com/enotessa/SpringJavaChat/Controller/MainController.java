@@ -64,4 +64,12 @@ public class MainController {
         return mav;
     }
 
+    @ResponseBody
+    @RequestMapping("/calcPage")
+    public ModelAndView calcPage() {
+        ModelAndView mav = new ModelAndView("calc");
+        System.out.println(mav);
+        return mav;
+    }
+
 }

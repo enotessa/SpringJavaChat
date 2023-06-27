@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.enotessa</groupId>
 	<artifactId>SpringJavaChat</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringJavaChat</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -71,11 +70,32 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>2.4.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.3.1</version>
+				<configuration>
+					<from>
+						<image></image>
+					</from>
+					<to>
+						<image>registry.hub.docker.com/enotessa13/springtest</image>
+						<auth>
+							<username>enotessa13</username>
+							<password>Konfeta111</password>
+						</auth>
+					</to>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
