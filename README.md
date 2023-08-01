@@ -2,10 +2,10 @@
 Сервис с чатом 
 
 Использованные технологии:
-Java
-Thymeleaf
-SpringBoot
-Spring Data
+Java,
+Thymeleaf,
+SpringBoot,
+Spring Data,
 Spring MVC
 
 
